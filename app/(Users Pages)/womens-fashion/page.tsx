@@ -1,25 +1,18 @@
-'use client';
+'use client'
 
-import { products } from "@/data/products";
+import { products } from "@/data/products"
 import Link from "next/link";
 
-function FeaturedProducts() {
-    return (
-        <section className="w-full py-10 lg:mx-15 px-2">
-            {/* Header */}
-            <div className="mb-6 flex items-end justify-between">
-                <div>
-                    Best Deals
-                </div>
+function WomensFashion() {
 
-                <button className="hidden text-sm font-semibold text-gray-800 sm:block">
-                    View All →
-                </button>
-            </div>
+    const mensProducts = products.filter((product) => product.category_category == 'womens')
+    
 
-            {/* PRODUCT GRID */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
-                {products.map((product) => (
+  return (
+    <div className="lg:mx-15 mx-2 my-6">
+
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+                {mensProducts.map((product) => (
                     <div
                         key={product.id}
                         className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
@@ -149,17 +142,17 @@ function FeaturedProducts() {
                                             const productUrl = `${window.location.origin}/products/${product.id}`;
 
                                             const message = `
-Hello Rahul, I am Looking for the below product for buy:
+Hi, I'm interested in this product:
 
-Product: ${product.name}
-Brand: ${product.Brand}
-Price: $${product["payable price"]}
-
+🛍️ Product: ${product.name}
+🏷️ Brand: ${product.Brand}
+💰 Price: $${product["payable price"]}
+📦 SKU: ${product.sku}
 
 🔗 Product Link:
 ${productUrl}
 
-Kindly Respond me with stock availability
+Is this product available?
     `.trim();
 
                                             const whatsappUrl = `https://wa.me/917318092275?text=${encodeURIComponent(
@@ -183,12 +176,9 @@ Kindly Respond me with stock availability
                 ))}
             </div>
 
-            {/* Mobile View All */}
-            <button className="mt-6 w-full rounded-xl border border-gray-200 py-3 text-sm font-semibold text-gray-800 sm:hidden">
-                View All Products →
-            </button>
-        </section>
-    );
+
+    </div>
+  )
 }
 
-export default FeaturedProducts;
+export default WomensFashion
