@@ -1,6 +1,7 @@
 'use client';
 
 import { products } from "@/data/products";
+import Link from "next/link";
 
 function FeaturedProducts() {
     return (
@@ -24,6 +25,8 @@ function FeaturedProducts() {
                         className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                     >
                         {/* IMAGE */}
+                        
+                        <Link href={`/product/${product.id}`}>
                         <div className="relative aspect-square overflow-hidden bg-gray-100">
                             <img
                                 src={product.images || "/placeholder.png"}
@@ -45,6 +48,7 @@ function FeaturedProducts() {
                                 </div>
                             )}
                         </div>
+                        </Link>
 
                         {/* CONTENT */}
                         <div className="p-3 sm:p-4">
