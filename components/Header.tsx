@@ -183,7 +183,7 @@ function Header() {
             />
 
             <p className="whitespace-nowrap text-[10px] font-medium sm:text-xs">
-              Children Fashion
+              Children Fashions
             </p>
           </Link>
 
