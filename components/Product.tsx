@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 
+
+
+
 function Product( {product}: { product: any } ) {
     return (
         <div>
