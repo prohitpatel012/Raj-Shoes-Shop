@@ -36,14 +36,7 @@ function Header() {
           </Link>
 
           {/* CART */}
-          <Link
-            href="/dashboard"
-            aria-label="Shopping cart"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-gray-100 sm:h-11 sm:w-11"
-          >
-            <CiShoppingBasket className="h-7 w-7 text-gray-800 sm:h-8 sm:w-8" />
-            <p className="text-blue-400 hover:text-blue-800">Backened</p>
-          </Link>
+         
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import { BiRupee } from "react-icons/bi";
 
 type ProductType = {
     id: number;
@@ -39,17 +40,17 @@ function Product({ product }: { product: ProductType }) {
 
                     {/* DISCOUNT */}
                     {product.discount > 0 && (
-                        <div className="absolute left-2 top-2 rounded-full bg-black px-2 py-1 text-[10px] font-bold text-white sm:left-3 sm:top-3 sm:text-xs">
+                        <div className="absolute left-2 top-2 rounded-full bg-red-500 px-2 py-1 text-[10px] font-bold text-white sm:left-3 sm:top-3 sm:text-xs">
                             -{product.discount}%
                         </div>
                     )}
 
                     {/* CATEGORY */}
-                    {product.category && (
+                    {/* {product.category && (
                         <div className="absolute right-2 top-2 rounded-full bg-white px-2 py-1 text-[9px] font-semibold uppercase text-gray-700 shadow-sm sm:right-3 sm:top-3 sm:text-[10px]">
                             {product.category}
                         </div>
-                    )}
+                    )} */}
                 </div>
             </Link>
 
@@ -57,11 +58,11 @@ function Product({ product }: { product: ProductType }) {
             <div className="p-3 sm:p-4">
 
                 {/* BRAND */}
-                {product.brand && (
+                {/* {product.brand && (
                     <p className="mb-1 text-[9px] font-bold uppercase tracking-widest text-gray-400 sm:text-[10px]">
                         {product.brand}
                     </p>
-                )}
+                )} */}
 
                 {/* NAME */}
                 <h3 className="truncate text-sm font-bold text-gray-900 sm:text-base">
@@ -86,7 +87,7 @@ function Product({ product }: { product: ProductType }) {
                 {product.colors && product.colors.length > 0 && (
                     <div className="mt-3">
                         <p className="mb-1 text-[9px] font-semibold uppercase text-gray-400">
-                            Colors
+                            Available Colors
                         </p>
 
                         <div className="flex flex-wrap gap-1">
@@ -106,7 +107,7 @@ function Product({ product }: { product: ProductType }) {
                 {product.sizes && product.sizes.length > 0 && (
                     <div className="mt-3">
                         <p className="mb-1 text-[9px] font-semibold uppercase text-gray-400">
-                            Sizes
+                            Available Sizes
                         </p>
 
                         <div className="flex flex-wrap gap-1">
@@ -127,13 +128,13 @@ function Product({ product }: { product: ProductType }) {
                     <div className="flex items-end justify-between gap-2">
                         <div>
                             <div className="flex items-center gap-2">
-                                <span className="text-base font-bold text-gray-900 sm:text-xl">
-                                    ${product.payable_price}
+                                <span className="text-base font-bold text-gray-900 sm:text-xl flex items-center">
+                                    <BiRupee /> {product.payable_price}
                                 </span>
 
                                 {product.discount > 0 && (
                                     <span className="text-[10px] text-gray-400 line-through sm:text-xs">
-                                        ${product.price}
+                                        <BiRupee /> {product.price}
                                     </span>
                                 )}
                             </div>
@@ -151,18 +152,26 @@ function Product({ product }: { product: ProductType }) {
                             onClick={() => {
                                 const productUrl = `${window.location.origin}/product/${product.id}`;
 
-                                const message = `
-Hello Rahul, I am Looking for the below product for buy:
+                           
+const message = `
+Hello Rahul 👋
 
-Product: ${product.name}
-Brand: ${product.brand || "N/A"}
-Price: $${product.payable_price}
+I'm interested in buying this product:
 
-🔗 Product Link:
+🛍️ *${product.name}*
+🏷️ Brand: ${product.brand || "N/A"}
+💰 Price: ₹${product.payable_price}
+
+🔗 *Product Link:*
 ${productUrl}
 
-Kindly Respond me with stock availability
-                                `.trim();
+Could you please confirm the stock availability?
+
+Thank you! 😊
+`.trim();
+
+
+
 
                                 const whatsappUrl =
                                     `https://wa.me/917318092275?text=${encodeURIComponent(
@@ -175,9 +184,9 @@ Kindly Respond me with stock availability
                                     "noopener,noreferrer"
                                 );
                             }}
-                            className="flex items-center justify-center gap-1.5 rounded-xl bg-green-600 px-3 py-2.5 text-[6px] font-semibold text-white transition hover:bg-green-700 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 sm:px-4 sm:text-xs"
+                            className="flex items-center justify-center gap-1.5 rounded-xl bg-green-600 px-3 py-2 text-[8px] font-light text-white transition hover:bg-green-700 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 sm:px-4 sm:text-xs"
                         >
-                            Chat on WhatsApp
+                            Chat With Us
                         </button>
                     </div>
                 </div>

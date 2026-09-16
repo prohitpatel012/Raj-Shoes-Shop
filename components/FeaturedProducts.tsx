@@ -73,12 +73,6 @@ function FeaturedProducts() {
                     </p>
                 </div>
 
-                <Link
-                    href="/products"
-                    className="hidden text-sm font-semibold text-gray-800 transition hover:text-gray-500 sm:block"
-                >
-                    View All →
-                </Link>
             </div>
 
             {/* LOADING */}
@@ -136,7 +130,7 @@ function FeaturedProducts() {
             {/* MOBILE VIEW ALL */}
             {!loading && products.length > 0 && (
                 <Link
-                    href="/products"
+                    href="/mens-fashion"
                     className="mt-6 block w-full rounded-xl border border-gray-200 py-3 text-center text-sm font-semibold text-gray-800 transition hover:bg-gray-50 sm:hidden"
                 >
                     View All Products →

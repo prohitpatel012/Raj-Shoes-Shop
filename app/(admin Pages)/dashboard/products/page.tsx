@@ -105,8 +105,12 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-gray-50 px-3 py-5 sm:px-5 sm:py-7 lg:px-8">
 
+<div className="mb-5 text-[10px] text-blue-500 sm:text-xs">
+  Back to <Link href="/dashboard">Dashboard</Link>
+</div>
       {/* HEADER */}
       <div className="mb-5 flex items-center justify-between gap-3 sm:mb-7">
+
 
         <div>
           <h1 className="text-base font-bold text-gray-900 sm:text-xl lg:text-2xl">
@@ -127,6 +131,8 @@ export default function ProductsPage() {
         </Link>
 
       </div>
+
+
 
 
       {/* EMPTY STATE */}
